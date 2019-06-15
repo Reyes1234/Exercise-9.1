@@ -1,45 +1,51 @@
-class Character{
-  constructor(name, age, favoritesong){
-    this._name = name;
-    this._age = age;
-    this._favoritesong = favoritesong;
+class Character {
+  constructor(name, age, favoritesong) {
+    this.name = name;
+    this.age = age;
+    this.favoritesong = favoritesong;
   }
-  getName(){
-    return this.name +" " + this.favoritesong;
-     }
-    }
+
+  getName() {
+    console.log(`${this.name} favorite song is`+ " " + this.favoritesong + " she is " + this.age);
+  }
+}
 
 class Wizard extends Character {
-  constructor(pointyhat, hatColor){
-    super(name, age, favoritesong);
-      this._pointyhat = pointyhat;
-      this._hatColor = hatColor;
+  constructor(name, age, favoritesong, hatColor) {
+    super(name, age, favoritesong );
+    this.hatColor = hatColor;
+
   }
   castSpell(){
-    console.log('Wizards cast spells' + this._pointyhat + this._hatColor);
+    console.log(this.name + this.hatColor + " And casts a Spell")
+  }
+  getName() {
+    console.log(`${this.name} favorite song is`+ " " + this.favoritesong + " he is " + this.age + " and a wizard");
   }
 }
 
-class Bard extends Character{
-  constructor(playsSong){
+class Bard extends Character {
+  constructor(name, age, favoritesong, instrument){
     super(name, age, favoritesong);
-    this._playSong = playSong;
+    this.instrument = instrument;
   }
-  playSong('songTitle'){
-   console.log('Bards plays instrument' + this._playSong + this.name + this.favoritesong);
-  }
+plays(){
+  console.log(this.name + " plays " +  this.instrument)
 }
 
+getName() {
+  console.log(`${this.name} favorite song is`+ " " + this.favoritesong + " he is " + this.age + " and a bard");
+}
 
-let myCharacter = new Character("Tim","17", "We Are Young");
-let anotherCharacter = new Character("Ronda","28", "My Heart Will Go On");
-let thirdCharacter = new Character("Emma","21","Thriller");
-let fourthCharacter = new Character("James","25","Teardrops on my Guitar");
+}
 
-console.log(myCharacter);
+let a = new Character("Amy's", 12, "Stars that shine");
+a.getName();
 
-let myWizard = new Wizard ('Jack', 40, 'Dream On', 'red');
-  myWizard.castSpell();
+let b = new Bard("Rocky's", 30, "Baby One More Time", "guitar");
+b.getName();
+b.plays();
 
-let myBard = new Bard ('Alvin', 38 , 'I Wanna Dance with Somebody', 'guitar');
-   myBard.playSong(songTitle);
+let d = new Wizard("John's", 30, "We Will Rock You", " Hat Color is Blue" );
+d.getName();
+d.castSpell();
